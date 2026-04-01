@@ -1,0 +1,39 @@
+body { overflow: hidden; background-color: #09090b; padding-bottom: 60px; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #3f3f46; border-radius: 10px; }
+        
+        /* Magical animated background */
+        .bg-shapes { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; overflow: hidden; pointer-events: none; }
+        .shape { position: absolute; filter: blur(80px); opacity: 0.6; }
+        .shape-1 { top: -10%; left: -10%; width: 50vw; height: 50vw; background: #4c1d95; animation: blob 8s infinite alternate; }
+        .shape-2 { bottom: -20%; right: -10%; width: 60vw; height: 60vw; background: #0f172a; animation: blob 10s infinite alternate-reverse; }
+        .shape-3 { top: 40%; left: 40%; width: 40vw; height: 40vw; background: #312e81; animation: blob 12s infinite; }
+
+        .glass-panel {
+            background: rgba(24, 24, 27, 0.65);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .typing-dot {
+            animation: typing 1.4s infinite ease-in-out both;
+            height: 6px; width: 6px; border-radius: 50%; background-color: #a1a1aa; display: inline-block; margin: 0 2px;
+        }
+        .typing-dot:nth-child(1) { animation-delay: -0.32s; }
+        .typing-dot:nth-child(2) { animation-delay: -0.16s; }
+        @keyframes typing {
+            0%, 80%, 100% { transform: scale(0); opacity: 0.4; }
+            40% { transform: scale(1); opacity: 1; }
+        }
+
+        /* Drawer transition */
+        #menu-drawer { transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .drawer-open { transform: translateX(0) !important; }
+        
+        /* Modal transitions */
+        .modal-overlay { opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+        .modal-overlay.active { opacity: 1; pointer-events: auto; z-index: 100; }
+        .modal-content { transform: scale(0.95); transition: transform 0.3s ease; }
+        .modal-overlay.active .modal-content { transform: scale(1); }
